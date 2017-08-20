@@ -1,0 +1,35 @@
+/* font-family: 'Space Mono', monospace; */
+/* font-family: 'PT Serif', serif; */
+/* font-family: 'Roboto Mono', monospace; */
+
+body {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: black;
+    font-family: 'Kanit', sans-serif;
+}
+
+.item {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.date {
+    font-style: italic;
+    color: gray;
+}
+
+.tags {
+    font-style: italic;
+    color: darkred;
+    font-size: 80%;
+}
+
+.tag {
+    font-style: italic;
+    /* text-align: right; */
+    /* font-size: 80%; */
+}

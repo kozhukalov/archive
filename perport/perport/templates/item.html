@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div class="item">
+  {% if item.date %}
+  <div class="date">
+    {{ item.date }}
+  </div>
+  {% endif %}
+  <div class="tags">
+    {{ item.tags | join(' | ') }}
+  </div>
+  <div class="item">
+    {{ item.render() | safe }}
+  </div>
+</div>
+{% endblock %}
+
+{% block side %}
+{% include "tags.html" %}
+{% endblock %}
