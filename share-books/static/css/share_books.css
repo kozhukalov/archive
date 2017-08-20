@@ -1,0 +1,30 @@
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+.header-container {
+    color: #B8BCBC;
+    background-color: #141F1F;
+    margin-bottom: 5px;
+}
+
+.header-logo {}
+
+.header-login-link {}
+
+.sidebar-column {
+    color: #B8BCBC;
+    background-color: #141F1F;
+}
+
+.book-row {
+    border-bottom: 1px solid #141F1F;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.book-profile {
+    border-left: 1px solid #141F1F;
+}

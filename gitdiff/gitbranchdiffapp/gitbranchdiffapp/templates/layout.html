@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GitBranchDiff</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    {% block header %}
+    <div class="container header-container">
+        <div class="pull-left header-logo">
+          <h1>GitBranchDiff</h1>
+        </div>
+    </div>
+    {% endblock %}
+    {% block content %}
+    <div class="container body-container">
+      <div class="row">
+        <div class="col-lg-12 menu-area">{% block menu %}{% endblock %}</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 main-area">{% block main %}{% endblock %}</div>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

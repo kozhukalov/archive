@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block main %}
+{% with book = book or None %}
+<form method="post" action="{% if book._id %}/book_edit/{{book._id}}{% else %}/book_add{% endif %}">
+  <!-- <input type="hidden" id="user_id" name="book_user_id" value="{{session.get('user_id')}}"> -->
+  <div class="form-group">
+    <label for="book_author">Author</label>
+    <input type="text" class="form-control" id="book_author" placeholder="I. Asimov" value="{{book.author}}" name="author">
+  </div>
+  <div class="form-group">
+    <label for="book_title">Title</label>
+    <input type="text" class="form-control" id="book_title" placeholder="I, Robot" value="{{book.title}}" name="title">
+  </div>
+  <div class="form-group">
+    <label for="book_description">Description</label>
+    <textarea class="form-control" rows="10" id="book_description" placeholder="The three laws of Robotics:
+1) A robot may not injure a human being or, through inaction, allow a human being to come to harm
+2) A robot must obey orders givein to it by human beings except where such orders would conflict with the First Law.
+3) A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
+
+With these three, simple directives, Isaac Asimov changed our perception of robots forever when he formulated the laws governing their behavior. In I, Robot, Asimov chronicles the development of the robot through a series of interlinked stories: from its primitive origins in the present to its ultimate perfection in the not-so-distant future--a future in which humanity itself may be rendered obsolete.
+
+Here are stories of robots gone mad, of mind-read robots, and robots with a sense of humor. Of robot politicians, and robots who secretly run the world--all told with the dramatic blend of science fact and science fiction that has become Asmiov's trademark." name="description">{{book.description}}</textarea>
+  </div>
+  <div class="form-group">
+    <label for="book_deposit">Deposit</label>
+    <input type="text" class="form-control" id="book_deposit" placeholder="0.0" value="{{book.deposit}}" name="deposit">
+  </div>
+  <div class="form-group">
+    <label for="book_title">Rent per day</label>
+    <input type="text" class="form-control" id="book_rent_per_day" placeholder="0.0" value="{{book.rent_per_day}}" name="rent_per_day">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endwith %}
+{% endblock %}

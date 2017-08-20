@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block main %}
+<div class="container-fluid book-list">
+{% for book in books %}
+<div class="row book-row">
+  <div class="col-md-4 book-picture">
+    Just picture
+  </div>
+  <div class="col-md-8 book-profile">
+    <h3>{{book.author}}</h3>
+    <h3>{{book.title}}</h3>
+    <p>{{book.description}}</p>
+    {% if book.deposit > 0 %}
+    <p>Required deposit: {{book.deposit}}</p>
+    {% endif %}
+    {% if book.rent_per_day %}
+    <p>Rent per day: {{book.rent_per_day}}</p>
+    {% endif %}
+    {% if session.get('user_id') == book.user_id %}
+    <p><a href="/book_delete/{{book._id}}">Delete</a> <a href="/book_edit/{{book._id}}">Edit</a></p>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

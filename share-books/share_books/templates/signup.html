@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if errors %}
+{% for e in errors %}
+<div class="alert alert-danger" role="alert">{{e}}</div>
+{% endfor %}
+{% endif %}
+<form method="post" action="/signup">
+  <div class="form-group">
+    <label for="signup_email">Email address</label>
+    {% if email %}
+    <input type="email" class="form-control" id="signup_email" placeholder="Email" name="email" value="{{email}}">
+    {% else %}
+    <input type="email" class="form-control" id="signup_email" placeholder="Email" name="email">
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="signup_password">Password</label>
+    <input type="password" class="form-control" id="signup_password" placeholder="Password" name="password">
+  </div>
+  <div class="form-group">
+    <label for="signup_confirm_password">Confirm password</label>
+    <input type="password" class="form-control" id="signup_confirm_password" placeholder="Password" name="confirm_password">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}

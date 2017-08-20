@@ -1,0 +1,13 @@
+SUDO=sudo
+SCRIPTDIR=$(readlink -f $(dirname $0))
+WORKDIR=${SCRIPTDIR}/../tmp
+CLIENT_INTERFACE_NAME=dhclient
+CLIENT_INTERFACE_MAC=8a:1a:3d:01:59:79
+SERVER_INTERFACE_NAME=dhcpd
+SERVER_INTERFACE_IP=192.168.200.1
+SERVER_INTERFACE_CIDR=24
+PATH=/opt/dhcp-4.3.5/sbin:$PATH
+# These vars are to avoid apparmor limitations that are actual on Ubuntu
+# and affect commands like /sbin/dhclient (including dhclient w/o full path)
+DHCPD=$(which dhcpd)
+DHCLIENT=$(which dhclient)

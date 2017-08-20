@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block menu %}
+  {% include "repos.html" %}
+{% endblock %}
+
+{% block main %}
+<h3>{{ reponame }}</h3>
+<form action="/repodiff/{{ reponame }}" method="post">
+  {% for branch in branches %}
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="{{ branch }}" value=""> {{ branch }}
+    </label>
+  </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-default">GetBranchDiff</button>
+</form>
+{% endblock %}

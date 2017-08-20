@@ -1,0 +1,24 @@
+---
+ddns_key: VyCWe0kutrawqQ2WEFKkAw==
+ddns_key_algorithm: HMAC-MD5
+ddns_key_name: DHCP_UPDATE
+network_address: 10.20.0.0
+network_mask: 255.255.255.0
+broadcast_address: 10.20.0.255
+start_address: 10.20.0.3
+end_address: 10.20.0.100
+next_server: 10.20.0.2
+router: 10.20.0.1
+dns_address: 10.20.0.2
+reverse_zone: 10.20.0
+forwarders:
+  - 8.8.8.8
+  - 8.8.4.4
+known_hosts:
+  - hostname: node-1
+    macs:
+      - 08:00:27:30:97:0a
+    ip: 10.20.0.101
+bootstrap_menu_label: ubuntu_bootstrap
+bootstrap_kernel_path: /images/ubuntu_bootstrap/vmlinuz
+bootstrap_initrd_path: /images/ubuntu_bootstrap/initrd.img

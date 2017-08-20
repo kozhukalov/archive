@@ -1,0 +1,5 @@
+<p><a href="/about">How it works</a></p>
+
+{% if session.get('logged_in') %}
+  <p><a href="/book_form">Add book</a></p>
+{% endif %}

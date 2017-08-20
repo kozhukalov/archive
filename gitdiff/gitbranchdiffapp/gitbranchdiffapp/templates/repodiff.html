@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block menu %}
+  {% include "repos.html" %}
+{% endblock %}
+
+{% block main %}
+<h3>{{ reponame }}</h3>
+<table class="table">
+  <tr>
+    <th>Change-Id</th>
+    <th>Sha</th>
+    <th>Commit message</th>
+  </tr>
+
+  {% for change_id in commits %}
+  <tr>
+    <td>
+      <a href="https://review.openstack.org/#/q/{{ change_id }}">{{ change_id }}</a>
+    </td>
+    <td>
+      <table class="table no-border">
+      {% for branch in branches %}
+      <tr>
+        <td>{{ branch }}</td>
+        <td>
+          {% if commits[change_id].get(branch) %}
+          <a href="https://review.openstack.org/#/q/{{ commits[change_id][branch].sha }}">{{ commits[change_id][branch].sha[:8] }}</a>
+          {% else %}
+          none
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+      </table>
+    </td>
+    <td>
+      <table class="table no-border">
+        <tr>
+          <td colspan="2">
+            {{ commits[change_id].values()[0].parsed.get('title', '') }}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            {{ commits[change_id].values()[0].parsed.get('description', '') }}
+          </td>
+        </tr>
+        {% for refkey, refvalue in commits[change_id].values()[0].parsed.get('refs', []) %}
+        {% if refkey == 'change-id' %}{% continue %}{% endif %}
+        <tr>
+          <td>{{ refkey }}</td>
+          <td>
+            {% if refkey in ['closes-bug', 'partial-bug', 'related-bug'] %}
+            <a href="https://launchpad.net/bugs/{{ refvalue }}">{{ refvalue }}</a>
+            {% else %}
+            {{ refvalue }}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+{% endblock %}

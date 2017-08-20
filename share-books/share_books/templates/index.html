@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block flash %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-danger" role="alert">{{message}}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<hr/>
+{% endblock %}
+
+{% block header_login %}
+  {% if not session.get('logged_in') %}
+    <p><a href="/login">Login</a> / <a href="/signup">Sign up</a></p>
+  {% else %}
+    <p>Welcome, {{session['email']}}</p>
+    <p><a href="/logout">Log out</a></p>
+  {% endif %}
+{% endblock %}
+
+{% block main %}
+  <p>
+    <h3>
+      This service is intended to be a place where everyone can offer their books for others or
+      find and borrow those books they want to read not being forced to buy them.
+    </h3>
+  </p>
+{% endblock %}
+
+{% block sidebar %}
+  {% include "side_menu.html" %}
+{% endblock %}
