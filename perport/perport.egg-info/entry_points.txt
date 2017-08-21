@@ -1,3 +1,0 @@
-[console_scripts]
-perport = perport.app:main
-
